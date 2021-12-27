@@ -1,5 +1,3 @@
-import sys
-
 from src.stack import Stack
 
 
@@ -26,7 +24,7 @@ class Player:
         return self.current_total()
 
     def hand_checker(self):
-        if self.hand.total() <= 21 and self.hand.size() >= 2:
+        if self.hand.total() <= 21:
             self.valid_hand = True
         else:
             self.valid_hand = False
