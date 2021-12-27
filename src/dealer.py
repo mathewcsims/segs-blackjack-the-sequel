@@ -11,3 +11,7 @@ class Dealer:
     def new_hand(self, player):
         for i in range(2):
             player.hand.push(self.deck.pop())
+        player.valid_hand = True
+
+    def deal_card(self, player):
+        player.hand.push(self.deck.pop())
