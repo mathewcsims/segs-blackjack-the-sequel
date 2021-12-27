@@ -38,7 +38,7 @@ values_high = [
 
 
 class Deck(Stack):
-    def __init__(self, ace_high=False):  # `ace_high' flag to control whether an ace is 1 (False) or 11 (True)
+    def __init__(self, ace_high=False):  # `ace_high' flag to control whether ace defaults to 1 (False) or 11 (True)
         super().__init__()
         if ace_high is True:
             values_active = values_high

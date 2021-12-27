@@ -9,46 +9,28 @@ winning_test_card = Card(name="Twenty-One", suit="Test", value=21)
 low_test_card = Card(name="Twenty-One", suit="Test", value=20)
 
 
-class HighScoreTestCase(unittest.TestCase):
+class ScoresTestCase(unittest.TestCase):
 
     def setUp(self):  # this method will be run before each test
         self.player = Player(name="Test Player")
-        self.player.hand.push(high_test_card)
 
     def tearDown(self):  # this method will be run after each tests
         pass
 
-    def test_number_of_cards(self):  # any method beginning with 'test' will be run by unittest
+    def test_high_score(self):  # any method beginning with 'test' will be run by unittest
+        self.player.hand.push(high_test_card)
         self.player.hand_checker()
         status = self.player.get_hand_status()
         self.assertEqual(status, False)
 
-
-class WinningTestCase(unittest.TestCase):
-
-    def setUp(self):  # this method will be run before each test
-        self.player = Player(name="Test Player")
+    def test_winning_score(self):  # any method beginning with 'test' will be run by unittest
         self.player.hand.push(winning_test_card)
-
-    def tearDown(self):  # this method will be run after each tests
-        pass
-
-    def test_number_of_cards(self):  # any method beginning with 'test' will be run by unittest
         self.player.hand_checker()
         status = self.player.get_hand_status()
         self.assertEqual(status, True)
 
-
-class LowScoreTestCase(unittest.TestCase):
-
-    def setUp(self):  # this method will be run before each test
-        self.player = Player(name="Test Player")
+    def test_low_score(self):  # any method beginning with 'test' will be run by unittest
         self.player.hand.push(low_test_card)
-
-    def tearDown(self):  # this method will be run after each tests
-        pass
-
-    def test_number_of_cards(self):  # any method beginning with 'test' will be run by unittest
         self.player.hand_checker()
         status = self.player.get_hand_status()
         self.assertEqual(status, True)
