@@ -11,4 +11,3 @@ I have made the game fully playable, by a single player, and sought to provide i
 You can play the game by running `blackjack.py`. The code should run on any installation of Python 3.x (3.8 used for development and testing) without any additional requirements.
 
 Several unit tests are available, which can be run using `python3 -m unittest discover test` from the main directory (containing `blackjack.py`). Testing has not been exhaustive; it's likely there are still plenty of bugs
-
