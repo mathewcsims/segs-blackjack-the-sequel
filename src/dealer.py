@@ -13,7 +13,7 @@ class Dealer:
 
     def deal_card(self, player, test=False) -> None:
         dealt_card = self.deck.pop()
-        if dealt_card.get_name() == "Ace" and test is False:
+        if dealt_card.get_name() == "Ace" and not test:
             answer = int(input("You got an Ace. Enter what you want it to be worth (1 or 11)"))
             if answer == 1:
                 dealt_card.set_value(1)

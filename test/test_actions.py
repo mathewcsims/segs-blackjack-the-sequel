@@ -7,14 +7,14 @@ class ActionsTestCase(unittest.TestCase):
 
     def setUp(self):  # this method will be run before each test
         self.game = Blackjack(deck=Deck(ace_high=False))
-        self.game.add_player(name="Player 1")
+        self.game.add_player(name="Player 1", test=True)
 
     def tearDown(self):  # this method will be run after each tests
         pass
 
     def test_hit(self):  # any method beginning with 'test' will be run by unittest
         initial_total = self.game.player.current_total()
-        self.game.turn(action="h")
+        self.game.turn(action="h", test=True)
         after_total = self.game.player.current_total()
         self.assertFalse(initial_total == after_total)
 

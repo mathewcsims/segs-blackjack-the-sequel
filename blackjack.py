@@ -15,9 +15,9 @@ class Blackjack:
         self.dealer.new_hand(player=self.player, test=test)
         self.player.hand_checker()
 
-    def turn(self, action) -> None:
+    def turn(self, action, test=False) -> None:
         if action == "h":
-            self.player.hit(dealer=self.dealer)
+            self.player.hit(dealer=self.dealer, test=test)
         elif action == "s":
             self.player.stick()
         else:

@@ -16,8 +16,8 @@ class Player:
         total = self.hand.total()
         return total
 
-    def hit(self, dealer) -> int:
-        dealer.deal_card(self)
+    def hit(self, dealer, test=False) -> int:
+        dealer.deal_card(self, test=test)
         return self.current_total()
 
     def stick(self) -> None:  # This doesn't really need to be here, but might be useful for other variations
