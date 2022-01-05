@@ -19,7 +19,7 @@ values = [
     ("King", 10),
     ("Queen", 10)
 ]
-# And values for if the player chooses aces should be 11
+# And values for if the player chooses aces should be 11 by default
 values_high = [
     ("Two", 2),
     ("Three", 3),
@@ -51,7 +51,7 @@ class Deck(Stack):
                             suit=suit)
                 self.push(card)
 
-    def shuffle(self):
+    def shuffle(self) -> None:
         shuffled_deck = []
         original_deck = self.items
         number_of_cards = self.size()
@@ -66,7 +66,7 @@ class Deck(Stack):
         self.items = shuffled_deck
         del shuffled_deck
 
-    def __str__(self):
+    def __str__(self) -> str:
         string = "This is a deck of " + str(self.size()) + " cards."
         for card in self.items:
             print(card)

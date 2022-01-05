@@ -1,6 +1,7 @@
 from src.deck import Deck
 from src.dealer import Dealer
 from src.player import Player
+import src.interactions as interactions
 
 
 class Blackjack:
@@ -9,12 +10,12 @@ class Blackjack:
         self.dealer = Dealer(deck=self.playing_deck)
         self.player = None
 
-    def add_player(self, name):  # I am only supporting a single player but a list of players could be used
+    def add_player(self, name, test=False):  # I am only supporting a single player but a list could be used
         self.player = Player(name=name)
-        self.dealer.new_hand(player=self.player)
+        self.dealer.new_hand(player=self.player, test=test)
         self.player.hand_checker()
 
-    def turn(self, action):
+    def turn(self, action) -> None:
         if action == "h":
             self.player.hit(dealer=self.dealer)
         elif action == "s":
@@ -25,12 +26,30 @@ class Blackjack:
         self.player.hand_checker()
 
 
-def play(ace_high=False):
-    game = Blackjack(deck=Deck(ace_high=ace_high))
-    game.add_player(name="Player 1")
-    while game.player.get_hand_status() is True:
-        action = input("Do you wish to Hit (h) or Stick (s)?")
+def play() -> None:
+
+    interactions.instructions()
+    game = Blackjack(deck=Deck(ace_high=interactions.set_ace_default()))
+
+    # This is a single player only version of the game. If multiple players were implemented,
+    # then this and the rest of the play() function from here on need redoing to accommodate that.
+    game.add_player(name=interactions.choose_player_name())
+
+    interactions.initial_hand()
+
+    keep_playing = game.player.get_hand_status()
+
+    while keep_playing is True and game.player.current_total() < 21:
+        game.player.print_hand()
+        action = interactions.hit_or_stick()
         game.turn(action=action)
+        keep_playing = game.player.get_hand_status()
+        if action == "s":
+            keep_playing = False
+        if not keep_playing:
+            break
+
+    interactions.end_game(player=game.player)
 
 
 if __name__ == '__main__':

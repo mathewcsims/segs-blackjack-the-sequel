@@ -7,7 +7,7 @@ class InitialHandTestCase(unittest.TestCase):
 
     def setUp(self):  # this method will be run before each test
         self.game = Blackjack(deck=Deck(ace_high=False))
-        self.game.add_player(name="Player 1")
+        self.game.add_player(name="Player 1", test=True)
 
     def tearDown(self):  # this method will be run after each tests
         pass
