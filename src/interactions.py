@@ -1,11 +1,10 @@
-import sys
 
 instruction_text = '''
 WELCOME TO BLACKJACK
 #########
 
-This is a single-player card game where you are trying to score as close to 21 as possible,
-without going over 21. If you go over 21, the game is over.
+This is a single-player card game where you are trying to score as close to 21 as possible, without going over 21.
+If you go over 21, the game is over.
 
 At the start of the game, the dealer will deal you two cards. You then have a choice whether to:
 - Hit, to receive another card, increasing your total, or
@@ -36,10 +35,10 @@ def set_ace_default() -> bool:
     # default = True means aces worth 11, False is aces worth 1 (aces_high variable elsewhere)
     default = None
     while default not in [True, False]:
-        selection = int(input("Do you want Aces to default to 1 (enter 1) or 11 (enter 11)?\n"))
-        if selection == 1:
+        selection = input("Do you want Aces to default to 1 (enter 1) or 11 (enter 11)?\n")
+        if selection == "1":
             default = False
-        elif selection == 11:
+        elif selection == "11":
             default = True
         else:
             print("Sorry, I don't understand. Please try that again.")
@@ -47,21 +46,20 @@ def set_ace_default() -> bool:
 
 
 def choose_player_name() -> str:
-    name = None
-    while name is None:
+    name: str = ""
+    while len(name) < 1:  # catches users not entering a name
         name = input("\nWhat is your name, new player?\n")
     return name
 
 
 def hit_or_stick() -> str:
-    action = input("\nDo you wish to Hit (h) or Stick (s)?\n")
-    while True:
+    action: str = ""
+    while len(action) < 1:  # catches users not entering a name
+        action = input("\nDo you wish to Hit (h) or Stick (s)?\n")
         if action == "h":
             return action
         elif action == "s":
             return action
-        else:
-            pass
 
 
 def end_game(player):

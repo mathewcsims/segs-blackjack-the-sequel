@@ -1,3 +1,20 @@
+                                                                                   
+88          88                       88        88                       88         
+88          88                       88        ""                       88         
+88          88                       88                                 88         
+88,dPPYba,  88 ,adPPYYba,  ,adPPYba, 88   ,d8  88 ,adPPYYba,  ,adPPYba, 88   ,d8   
+88P'    "8a 88 ""     `Y8 a8"     "" 88 ,a8"   88 ""     `Y8 a8"     "" 88 ,a8"    
+88       d8 88 ,adPPPPP88 8b         8888[     88 ,adPPPPP88 8b         8888[      
+88b,   ,a8" 88 88,    ,88 "8a,   ,aa 88`"Yba,  88 88,    ,88 "8a,   ,aa 88`"Yba,   
+8Y"Ybbd8"'  88 `"8bbdP"Y8  `"Ybbd8"' 88   `Y8a 88 `"8bbdP"Y8  `"Ybbd8"' 88   `Y8a  
+                                              ,88                                  
+                                            888P"
+
 ## BBC SEGS Blackjack Tech Test - the sequel
 
-I tried this before, I'm here again. Try the tests, they may even work now.
+This is my second iteration of code to solve this task. My first attempt (aborted because I had concentrated on making the game playable rather than on ensuring my code passed the set tests, is at (segs-blackjack)[https://github.com/mathewcsims/segs-blackjack]).
+
+The game implements a simple, single-player version of blackjack. You can play the game by running `blackjack.py`. The code should run on any installation of Python 3.x (3.8 used for development and testing) without any additional requirements.
+
+Several unit tests are available, which can be run using `python3 -m unittest discover test` from the main directory (containing `blackjack.py`).
+

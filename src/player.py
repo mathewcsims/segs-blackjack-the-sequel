@@ -1,5 +1,4 @@
 from src.stack import Stack
-from src.interactions import end_game
 
 
 class Player:
